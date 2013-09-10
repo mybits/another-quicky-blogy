@@ -11,13 +11,29 @@ class PostsController < ApplicationController
 	end
 
 	def create
-		Post.create(post_params)
-		redirect_to posts_path
-
+		@post =	Post.new(post_params)
+		if @post.save
+			redirect_to posts_path
+		else
+			render "new"
+		end
 	end	
 
 	def edit
 		@post = Post.find_by_id(params[:id])
+	end
+
+	def update
+		post = Post.find_by_id(params[:id])
+		post.update_columns(params[:post])
+		redirect_to posts_path
+	end
+
+	def destroy
+		post = Post.find_by_id(params[:id])
+		post.destroy
+		flash[:notice] = "#{post.title} was deleted"
+		redirect_to posts_path
 	end
 
 	private 

@@ -2,3 +2,26 @@
 <div class="entry">
 	<%= @post.body %>
 </div>
+
+<h2>Comments</h2>
+
+<% @post.comments.each do |comment| %>
+	<p>By: <%= comment.author %></p>
+	<div class="comment">
+		<%= comment.body %>
+	</div>
+	<p><%= button_to "Delete", [@post, comment],
+	confirm: "Are you sure?", method: :delete %></p>
+<% end %>
+
+<%= form_for [@post, Comment.new] do |f| %>
+	<p><%= f.label :author, "Name" %></p>
+	<p><%= f.text_field :author %></p>
+
+	<p><%= f.label :body, "Comment" %></p>
+	<p><%= f.text_area :body %></p>
+
+	<%= f.submit %>
+
+<% end %>
+

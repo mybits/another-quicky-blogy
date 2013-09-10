@@ -1,5 +1,6 @@
 class PostsController < ApplicationController
 	respond_to :html, :atom
+	before_filter :set_post, only: [:show, :edit, :update, :destroy]
 
 	def index
 		@posts = Post.order("created_at desc")
@@ -7,7 +8,6 @@ class PostsController < ApplicationController
 	end
 
 	def show
-		@post = Post.find_by_id(params[:id])
 		respond_with @post
 	end
 
@@ -25,12 +25,9 @@ class PostsController < ApplicationController
 	end	
 
 	def edit
-		@post = Post.find_by_id(params[:id])
 	end
 
 	def update
-		@post = Post.find_by_id(params[:id])
-
 		if @post.update(post_params)
 			redirect_to posts_path
 		else
@@ -39,14 +36,17 @@ class PostsController < ApplicationController
 	end
 
 	def destroy
-		post = Post.find_by_id(params[:id])
-		post.destroy
-		redirect_to posts_path, notice: "#{post.title} was deleted"
+		@post.destroy
+		redirect_to posts_path, notice: "#{@post.title} was deleted"
 	end
 
 	private 
 		def post_params
 			params.require(:post).permit(:title, :body)
+		end
+
+		def set_post
+			@post = Post.find_by_id(params[:id])
 		end
 
 end

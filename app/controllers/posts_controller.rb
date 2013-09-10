@@ -1,5 +1,5 @@
 class PostsController < ApplicationController
-	respond_to :html
+	respond_to :html, :atom
 
 	def index
 		@posts = Post.order("created_at desc")
@@ -41,8 +41,7 @@ class PostsController < ApplicationController
 	def destroy
 		post = Post.find_by_id(params[:id])
 		post.destroy
-		flash[:notice] = "#{post.title} was deleted"
-		redirect_to posts_path
+		redirect_to posts_path, notice: "#{post.title} was deleted"
 	end
 
 	private 

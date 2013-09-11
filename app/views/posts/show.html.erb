@@ -1,11 +1,15 @@
+<h3><%= link_to "<< Back to main page", posts_path %><h3>
+
 <h1><%= @post.title %></h1>
 <div class="entry">
 	<%= @post.body %>
 </div>
 
+<hr/>
 <h2>Comments</h2>
 
 <% @post.comments.each do |comment| %>
+	<em><p>Posted <%= time_ago_in_words(comment.created_at) %> ago </p></em>
 	<p>By: <%= comment.author %></p>
 	<div class="comment">
 		<%= comment.body %>

@@ -1,6 +1,9 @@
 class PostsController < ApplicationController
 	respond_to :html, :atom
+
+	before_filter :authenticate, except: [:index, :show]
 	before_filter :set_post, only: [:show, :edit, :update, :destroy]
+
 
 	def index
 		@posts = Post.order("created_at desc")
@@ -47,6 +50,12 @@ class PostsController < ApplicationController
 
 		def set_post
 			@post = Post.find_by_id(params[:id])
+		end
+
+		def authenticate
+			authenticate_or_request_with_http_basic do |name, password|
+				name == "admin" && password == "secret"
+			end
 		end
 
 end

@@ -11,8 +11,10 @@
     </div>
   <% end %>
 
-	<%= f.text_field :title %>
-	<%= f.text_area :body %>
+  <h3> <%= f.label :title, "Title" %></h3>
+	<p> <%= f.text_field :title %></p>
+  <h3><%= f.label :body, "Content" %></h3>
+	<p><%= f.text_area :body %></p>
 	<%= f.submit %>	
 
 <% end %>

@@ -1,4 +1,4 @@
-<h1>My Blog!</h1>
+<h1>Recent posts:</h1>
 <% @posts.each do |post| %>
 	<h2><%= link_to post.title, post %></h2>
 	<em><p>Created at: <%= time_tag(post.created_at) %></p></em>

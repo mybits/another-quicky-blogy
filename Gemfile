@@ -45,3 +45,7 @@ end
 # gem 'debugger', group: [:development, :test]
 
 gem 'zurb-foundation', '~> 4.0.0'
+
+group :test, :development do
+	gem 'rspec-rails', '~> 2.0'
+end 

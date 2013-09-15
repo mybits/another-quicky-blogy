@@ -48,4 +48,8 @@ gem 'zurb-foundation', '~> 4.0.0'
 
 group :test, :development do
 	gem 'rspec-rails', '~> 2.0'
-end 
+end
+
+group :test do
+	gem 'capybara' 
+end

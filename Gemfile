@@ -45,6 +45,8 @@ end
 # gem 'debugger', group: [:development, :test]
 
 gem 'zurb-foundation', '~> 4.0.0'
+gem 'activeadmin', github: 'gregbell/active_admin', branch: 'rails4'
+gem 'ransack'
 
 group :test, :development do
 	gem 'rspec-rails', '~> 2.0'

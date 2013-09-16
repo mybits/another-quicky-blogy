@@ -47,6 +47,7 @@ end
 gem 'zurb-foundation', '~> 4.0.0'
 gem 'activeadmin', github: 'gregbell/active_admin', branch: 'rails4'
 gem 'ransack'
+gem 'inherited_resources', github: 'josevalim/inherited_resources'
 
 group :test, :development do
 	gem 'rspec-rails', '~> 2.0'
@@ -54,4 +55,5 @@ end
 
 group :test do
 	gem 'capybara' 
+	gem 'database_cleaner', '1.0.1'
 end

@@ -20,6 +20,7 @@ ActiveAdmin.register AdminUser do
   controller do
     def permitted_params
       params.permit admin_user: [:email, :password, :password_confirmation]
+      params.permit post: [:title, :body]
     end
   end
 end

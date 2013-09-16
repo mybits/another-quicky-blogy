@@ -31,7 +31,7 @@ class PostsController < ApplicationController
 	end
 
 	def update
-		if @post.update(post_params)
+		if @post.update_attributes(post_params)
 			redirect_to posts_path, notice: "#{@post.title} post was updated."
 		else
 			render "edit"
@@ -42,6 +42,7 @@ class PostsController < ApplicationController
 		@post.destroy
 		redirect_to posts_path, notice: "#{@post.title} was deleted."
 	end
+
 
 	private 
 		def post_params

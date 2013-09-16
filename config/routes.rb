@@ -1,9 +1,10 @@
 Blogin20::Application.routes.draw do
 
-  devise_for :admin_users, ActiveAdmin::Devise.config
-  ActiveAdmin.routes(self)
   root to: 'posts#index'
   
+  devise_for :admin_users, ActiveAdmin::Devise.config
+  ActiveAdmin.routes(self)
+    
   resources :posts do
     resources :comments
   end

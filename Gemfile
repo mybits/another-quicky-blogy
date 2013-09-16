@@ -57,3 +57,6 @@ group :test do
 	gem 'capybara' 
 	gem 'database_cleaner', '1.0.1'
 end
+
+gem 'redcarpet', '~> 3.0.0'
+gem 'rouge', '~> 0.5.1'

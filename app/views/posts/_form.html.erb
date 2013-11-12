@@ -12,7 +12,7 @@
   <% end %>
 
   <h3> <%= f.label :title, "Title" %></h3>
-	<p> <%= f.text_field :title %></p>
+	<p> <%= f.text_field :title, id: "title" %></p>
   <h3><%= f.label :body, "Content" %></h3>
 	<p><%= f.text_area :body %></p>
 	<%= f.submit %>	

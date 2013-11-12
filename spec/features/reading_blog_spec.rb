@@ -16,7 +16,7 @@ feature 'Reading the blog' do
 	scenario 'Reading individual blog' do
 		visit root_path
 		first(:link, "Here is my blog post.").click
-		# click_link "Here is my blog post."     --> that was causing ambiguous match
+		# click_link "Here is my blog post."     --> that was causing ambiguous match in Capybara
 
 		expect(current_path).to eq post_path(@post)
 	end

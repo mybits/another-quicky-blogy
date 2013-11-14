@@ -6,7 +6,7 @@ class PostsController < ApplicationController
 
 
 	def index
-		@posts = Post.order("created_at desc")
+		@posts = Post.order("created_at desc").page(params[:page]).per(3)
 		respond_with @posts
 	end
 
@@ -25,7 +25,7 @@ class PostsController < ApplicationController
 		else
 			render "new"
 		end
-	end	
+	end
 
 	def edit
 	end
@@ -44,7 +44,7 @@ class PostsController < ApplicationController
 	end
 
 
-	private 
+	private
 		def post_params
 			params.require(:post).permit(:title, :body)
 		end

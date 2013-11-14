@@ -5,10 +5,12 @@
 	<div class="entry">
 		<%= post.body %>
 		<p><%= link_to "Edit", [:edit, post] %></p>
-		<%= button_to "Delete", post, 
+		<%= button_to "Delete", post,
 			data: { confirm: "Are you sure?" }, method: :delete %>
 		<hr/>
 	</div>
 <% end %>
 
 <%= link_to "New Post", new_post_path %>
+
+<p><%= paginate @posts %></p>

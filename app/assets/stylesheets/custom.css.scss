@@ -6,13 +6,16 @@ div.main {
 	@include grid-row;
 }*/
 
+.main {
+	margin: 50px 100px 50px 100px;
+}
+
 footer {
-	margin-top: 50px;
 	background-color: #000;
 	color: #eee;
 	text-align: right;
 	padding-right: 80px;
 	p {
-		line-height: 150px;
+		line-height: 60px;
 	}
 }

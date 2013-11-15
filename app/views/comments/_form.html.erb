@@ -1,0 +1,12 @@
+<h3>Add new comment:</h3>
+
+<%= form_for [@post, Comment.new], remote: true do |f| %>
+  <p><%= f.label :author, "Your name:" %></p>
+  <p><%= f.text_field :author %></p>
+
+  <p><%= f.label :body, "Your comment:" %></p>
+  <p><%= f.text_area :body %></p>
+
+  <%= f.submit %>
+
+<% end %>

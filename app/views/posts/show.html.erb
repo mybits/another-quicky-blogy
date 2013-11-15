@@ -12,14 +12,5 @@
 	<%= render "comments/comment" %>
 </div>
 
-<%= form_for [@post, Comment.new], remote: true do |f| %>
-	<p><%= f.label :author, "Name" %></p>
-	<p><%= f.text_field :author %></p>
-
-	<p><%= f.label :body, "Comment" %></p>
-	<p><%= f.text_area :body %></p>
-
-	<%= f.submit %>
-
-<% end %>
+<%= render "comments/form" %>
 

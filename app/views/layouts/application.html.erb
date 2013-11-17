@@ -8,15 +8,18 @@
   <%= auto_discovery_link_tag(:atom, posts_path(:atom)) %>
 </head>
 <body>
+  <div id="wrap">
 
-	<%= render 'layouts/header' %>
+  	<%= render 'layouts/header' %>
 
-	<div class="main">
-		<%= notice %>
-		<%= yield %>
-	</div>
+  	<div class="main">
+  		<%= notice %>
+  		<%= yield %>
+  	</div>
+    <div id="push"></div>
+  </div>
 
 	<%= render 'layouts/footer' %>
-	
+
 </body>
 </html>

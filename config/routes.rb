@@ -2,10 +2,9 @@ Blogin20::Application.routes.draw do
 
   devise_for :users
   root to: 'posts#index'
-  
-  devise_for :admin_users, ActiveAdmin::Devise.config
+
   ActiveAdmin.routes(self)
-    
+
   resources :posts do
     resources :comments
   end
@@ -50,7 +49,7 @@ Blogin20::Application.routes.draw do
   #       get 'recent', on: :collection
   #     end
   #   end
-  
+
   # Example resource route with concerns:
   #   concern :toggleable do
   #     post 'toggle'

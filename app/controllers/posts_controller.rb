@@ -1,5 +1,5 @@
 class PostsController < ApplicationController
-	respond_to :html, :atom
+	respond_to :html, :json, :xml, :atom
 
 	before_filter :authenticate, except: [:index, :show]
 	before_filter :set_post, only: [:show, :edit, :update, :destroy]
@@ -21,10 +21,11 @@ class PostsController < ApplicationController
 	def create
 		@post =	Post.new(post_params)
 		if @post.save
-			redirect_to posts_path, notice: "'#{@post.title}' post was added."
+			flash[:notice] = "#{@post.title} post was added."
 		else
-			render "new"
+			flash[:notice] = "Post failed to add."
 		end
+		respond_with @post
 	end
 
 	def edit

@@ -20,11 +20,7 @@ class PostsController < ApplicationController
 
 	def create
 		@post =	Post.new(post_params)
-		if @post.save
-			flash[:notice] = "#{@post.title} post was added."
-		else
-			flash[:notice] = "Post failed to add."
-		end
+		flash[:notice] = @post.save ? "#{@post.title} post was added." : "Post failed to add."
 		respond_with @post
 	end
 

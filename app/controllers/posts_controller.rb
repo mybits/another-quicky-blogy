@@ -28,10 +28,9 @@ class PostsController < ApplicationController
 	end
 
 	def update
-		if @post.update_attributes(post_params)
-			redirect_to posts_path, notice: "#{@post.title} post was updated."
-		else
-			render "edit"
+		flash[:notice] = @post.update_attributes(post_params) ? "#{@post.title} post was updated." :
+										"Post failed to update."
+		respond_with @post
 		end
 	end
 

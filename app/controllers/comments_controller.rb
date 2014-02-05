@@ -1,11 +1,10 @@
 class CommentsController < ApplicationController
 	before_filter :set_post
+	respond_to :html, :json, :xml
 
 	def create
 		@post.comments.create(comment_params)
-		respond_to do |format|
-			format.html { redirect_to @post }
-			format.js
+		respond_with @post, location: post_path
 		end
 	end
 
@@ -17,7 +16,7 @@ class CommentsController < ApplicationController
 
 	private
 		def comment_params
-			params.require(:comment).permit(:author, :body)			
+			params.require(:comment).permit(:author, :body)
 		end
 
 		def set_post
